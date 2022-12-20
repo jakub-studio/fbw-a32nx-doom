@@ -160,9 +160,9 @@
       "Passengers": "Passengers",
       "Planned": "Planned",
       "DeboardConfirmationTitle": "Deboard all Passengers?",
-      "DeboardConfirmationBody":"Please confirm deboarding all passengers",
+      "DeboardConfirmationBody": "Please confirm deboarding all passengers",
       "DeboardConfirmationConfirm": "Deboard",
-      "DeboardConfirmationCancel":"Cancel",
+      "DeboardConfirmationCancel": "Cancel",
       "LoadingTime": "Loading Time",
       "TT": {
         "AircraftMustBeColdAndDarkToChangeBoardingTimes": "Aircraft Must Be On the Ground and Have Engines Shutdown to Change Boarding Duration",
@@ -459,6 +459,7 @@
     },
     "AircraftOptionsPinPrograms": {
       "AccelerationHeight": "Acceleration Height (ft)",
+      "DoomMcdu": "Enable DOOM on MCDU",
       "EngineOutAccelerationHeight": "Engine-Out Acceleration Height (ft)",
       "IsisBaroUnit": "ISIS Baro Unit",
       "IsisMetricAltitude": "ISIS Metric Altitude",

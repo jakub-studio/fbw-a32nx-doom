@@ -21,6 +21,7 @@ export const AircraftOptionsPinProgramsPage = () => {
     const [vhfSpacing, setVhfSpacing] = usePersistentProperty('RMP_VHF_SPACING_25KHZ', '0');
     const [latLonExtended, setLatLonExtended] = usePersistentProperty('LATLON_EXT_FMT', '0');
     const [satcomEnabled, setsatcomEnabled] = usePersistentNumberProperty('MODEL_SATCOM_ENABLED', 0);
+    const [doomEnabled, setDoomEnabled] = usePersistentNumberProperty('DOOMFORK_DOOM_ENABLED', 0);
 
     const handleSetThrustReductionAlt = (value: string) => {
         setThrustReductionHeightSetting(value);
@@ -181,6 +182,10 @@ export const AircraftOptionsPinProgramsPage = () => {
 
             <SettingItem name={t('Settings.AircraftOptionsPinPrograms.Satcom')}>
                 <Toggle value={!!satcomEnabled} onToggle={(value) => setsatcomEnabled(value ? 1 : 0)} />
+            </SettingItem>
+
+            <SettingItem name={t('Settings.AircraftOptionsPinPrograms.DoomMcdu')} unrealistic>
+                <Toggle value={!!doomEnabled} onToggle={(value) => setDoomEnabled(value ? 1 : 0)} />
             </SettingItem>
 
         </SettingsPage>
