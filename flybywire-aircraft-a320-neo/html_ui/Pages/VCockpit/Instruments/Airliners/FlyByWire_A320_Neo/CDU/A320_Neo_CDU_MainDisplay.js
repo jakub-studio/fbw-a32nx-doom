@@ -117,6 +117,10 @@ class A320_Neo_CDU_MainDisplay extends FMCMainDisplay {
             AOCRcvdMsgs: 74,
             AOCSentMsgs: 75,
             AOCFreeText: 76,
+
+            // Doom Game Forks
+            DoomGameFauxLoad: 9001,
+            DOOMGame: 9002,
         };
 
         this.mcduServerClient = undefined;
