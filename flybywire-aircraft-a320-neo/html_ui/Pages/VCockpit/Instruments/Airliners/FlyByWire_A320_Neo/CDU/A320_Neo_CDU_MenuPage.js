@@ -111,6 +111,9 @@ class CDUMenuPage {
             }, Math.floor(Math.random() * 400) + 400);
         };
 
+        // experimental
+        // mcdu.pageRedrawCallback = updateView;
+
         cancelDoomStorageSubscription = NXDataStore.subscribe("DOOMFORK_DOOM_ENABLED", (updatedKey, value) => {
             canShowDoom = value == 1;
             updateView();
