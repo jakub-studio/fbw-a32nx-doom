@@ -111,7 +111,7 @@ class CDUMenuPage {
             updateView();
             setTimeout(() => {
                 mcdu.removeScratchpadMessage(NXSystemMessages.waitForSystemResponse.text);
-                // CDUDoom.ShowPage(mcdu);
+                CDU_DOOMFORK_DoomLoadPage.ShowPage(mcdu);
             }, Math.floor(Math.random() * 400) + 400);
         };
 
