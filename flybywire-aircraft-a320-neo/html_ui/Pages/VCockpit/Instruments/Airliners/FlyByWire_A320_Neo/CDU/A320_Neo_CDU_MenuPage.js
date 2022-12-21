@@ -10,7 +10,8 @@ class CDUMenuPage {
         let selectedDOOMGame = false;
         //const selectedMaint = false;
 
-        let canShowDoom = NXDataStore.get("DOOMFORK_DOOM_ENABLED", 0) == 1;
+        // legacy
+        /* let canShowDoom = NXDataStore.get("DOOMFORK_DOOM_ENABLED", 0) == 1;
         // eslint-disable-next-line prefer-const
         let cancelDoomStorageSubscription;
 
@@ -18,11 +19,14 @@ class CDUMenuPage {
             if (cancelDoomStorageSubscription && typeof cancelDoomStorageSubscription === "function") {
                 cancelDoomStorageSubscription();
             }
-        };
+        }; */
 
         const updateView = () => {
             const getText = (name, isSelected, extra = "", isLeft = true) => isSelected ? (isLeft ? name + " (SEL)" : "(SEL) " + name) : name + extra;
             const getColor = (system, isSelected) => isSelected ? Column.cyan : system === activeSystem ? Column.green : Column.white;
+
+            // is calling NXDataStore#get every "render" considered heavy?
+            const canShowDoom = NXDataStore.get("DOOMFORK_DOOM_ENABLED", 0) == 1;
 
             mcdu.setTemplate(FormatTemplate([
                 [new Column(7, "MCDU MENU")],
@@ -63,7 +67,7 @@ class CDUMenuPage {
             updateView();
             setTimeout(() => {
                 mcdu.removeScratchpadMessage(NXSystemMessages.waitForSystemResponse.text);
-                onLeaveMCDUMenu();
+                //onLeaveMCDUMenu();
                 CDUIdentPage.ShowPage(mcdu);
             }, Math.floor(Math.random() * 400) + 200);
         };
@@ -74,7 +78,7 @@ class CDUMenuPage {
             updateView();
             setTimeout(() => {
                 mcdu.removeScratchpadMessage(NXSystemMessages.waitForSystemResponse.text);
-                onLeaveMCDUMenu();
+                //onLeaveMCDUMenu();
                 CDUAtsuMenu.ShowPage(mcdu);
             }, Math.floor(Math.random() * 400) + 200);
         };
@@ -96,7 +100,7 @@ class CDUMenuPage {
             updateView();
             setTimeout(() => {
                 mcdu.removeScratchpadMessage(NXSystemMessages.waitForSystemResponse.text);
-                onLeaveMCDUMenu();
+                //onLeaveMCDUMenu();
                 CDUCfdsMainMenu.ShowPage(mcdu);
             }, Math.floor(Math.random() * 400) + 400);
         };
@@ -112,11 +116,12 @@ class CDUMenuPage {
         };
 
         // experimental
-        // mcdu.pageRedrawCallback = updateView;
+        mcdu.pageRedrawCallback = updateView;
 
-        cancelDoomStorageSubscription = NXDataStore.subscribe("DOOMFORK_DOOM_ENABLED", (updatedKey, value) => {
+        // legacy
+        /* cancelDoomStorageSubscription = NXDataStore.subscribe("DOOMFORK_DOOM_ENABLED", (updatedKey, value) => {
             canShowDoom = value == 1;
             updateView();
-        });
+        }); */
     }
 }
