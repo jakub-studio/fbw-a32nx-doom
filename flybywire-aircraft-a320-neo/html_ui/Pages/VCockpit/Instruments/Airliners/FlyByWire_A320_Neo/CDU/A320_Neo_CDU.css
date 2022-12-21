@@ -269,3 +269,27 @@ span .s-text {
   margin-right: 6%;
   float: right;
 }
+
+/* DOOM Game */
+
+#__DOOM_GAME_OVERLAY__ {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 950; /* 998 is used by backlight bleed which we still want */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#__DOOM_GAME_OVERLAY__ div.outer-container {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+
+#__DOOM_GAME_OVERLAY__ div.outer-container canvas {
+  width: 100%;
+  height: 100%;
+}

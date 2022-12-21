@@ -10,17 +10,6 @@ class CDUMenuPage {
         let selectedDOOMGame = false;
         //const selectedMaint = false;
 
-        // legacy
-        /* let canShowDoom = NXDataStore.get("DOOMFORK_DOOM_ENABLED", 0) == 1;
-        // eslint-disable-next-line prefer-const
-        let cancelDoomStorageSubscription;
-
-        const onLeaveMCDUMenu = () => {
-            if (cancelDoomStorageSubscription && typeof cancelDoomStorageSubscription === "function") {
-                cancelDoomStorageSubscription();
-            }
-        }; */
-
         const updateView = () => {
             const getText = (name, isSelected, extra = "", isLeft = true) => isSelected ? (isLeft ? name + " (SEL)" : "(SEL) " + name) : name + extra;
             const getColor = (system, isSelected) => isSelected ? Column.cyan : system === activeSystem ? Column.green : Column.white;
@@ -40,7 +29,7 @@ class CDUMenuPage {
                     new Column(0, getText("<ATSU", selectedATSU), getColor("ATSU", selectedATSU)),
                     canShowDoom ? new Column(
                         23,
-                        getText("DOOM 1993>", selectedDOOMGame, "", false),
+                        getText("DOOM>", selectedDOOMGame, "", false),
                         Column.right,
                         getColor("DOOM", selectedDOOMGame)
                     ) : ""
@@ -67,7 +56,6 @@ class CDUMenuPage {
             updateView();
             setTimeout(() => {
                 mcdu.removeScratchpadMessage(NXSystemMessages.waitForSystemResponse.text);
-                //onLeaveMCDUMenu();
                 CDUIdentPage.ShowPage(mcdu);
             }, Math.floor(Math.random() * 400) + 200);
         };
@@ -78,7 +66,6 @@ class CDUMenuPage {
             updateView();
             setTimeout(() => {
                 mcdu.removeScratchpadMessage(NXSystemMessages.waitForSystemResponse.text);
-                //onLeaveMCDUMenu();
                 CDUAtsuMenu.ShowPage(mcdu);
             }, Math.floor(Math.random() * 400) + 200);
         };
@@ -89,7 +76,6 @@ class CDUMenuPage {
             updateView();
             setTimeout(() => {
                 mcdu.removeScratchpadMessage(NXSystemMessages.waitForSystemResponse.text);
-                onLeaveMCDUMenu();
                 CDU_AIDS_MainMenu.ShowPage(mcdu);
             }, Math.floor(Math.random() * 400) + 400);
         };
@@ -100,7 +86,6 @@ class CDUMenuPage {
             updateView();
             setTimeout(() => {
                 mcdu.removeScratchpadMessage(NXSystemMessages.waitForSystemResponse.text);
-                //onLeaveMCDUMenu();
                 CDUCfdsMainMenu.ShowPage(mcdu);
             }, Math.floor(Math.random() * 400) + 400);
         };
@@ -115,13 +100,6 @@ class CDUMenuPage {
             }, Math.floor(Math.random() * 400) + 400);
         };
 
-        // experimental
         mcdu.pageRedrawCallback = updateView;
-
-        // legacy
-        /* cancelDoomStorageSubscription = NXDataStore.subscribe("DOOMFORK_DOOM_ENABLED", (updatedKey, value) => {
-            canShowDoom = value == 1;
-            updateView();
-        }); */
     }
 }

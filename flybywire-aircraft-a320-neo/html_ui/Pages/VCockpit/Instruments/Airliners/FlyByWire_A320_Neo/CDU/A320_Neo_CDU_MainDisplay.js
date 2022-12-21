@@ -120,7 +120,7 @@ class A320_Neo_CDU_MainDisplay extends FMCMainDisplay {
 
             // Doom Game Fork
             DoomGameLoad: 9001,
-            DOOMGameRunner: 9002,
+            DoomGameRunner: 9002,
         };
 
         this.mcduServerClient = undefined;
